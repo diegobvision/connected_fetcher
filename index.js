@@ -16,7 +16,10 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 // -------------------------
 async function scrapeAndStore() {
   console.log("Scraping and storing data...");
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: true, // or false if you need to see the browser during debugging
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
   const page = await browser.newPage();
 
   // Use HTTP Basic Auth credentials before navigation.
