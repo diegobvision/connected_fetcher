@@ -30,7 +30,7 @@ async function scrapeAndStore() {
 
   try {
     // Navigate to the admin page (which is a frameset)
-    await page.goto(peocess.env.URL, {
+    await page.goto(process.env.URL, {
       waitUntil: "networkidle0",
     });
 
